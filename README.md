@@ -1,4 +1,4 @@
-# Genomic Nextflow HPC Design Guide on AWS ParallelCluster
+# Genomic Nextflow HPC Deployment Guide on AWS ParallelCluster
 
 
 ## Overview

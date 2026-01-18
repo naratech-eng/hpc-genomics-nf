@@ -127,7 +127,7 @@ If you use this design guide in your work, please cite:
 ```bibtex
 @misc{hpc-genomics-nf,
   author = {Manus AI},
-  title = {Genomic Nextflow HPC Design Guide on AWS ParallelCluster},
+  title = {Genomic Nextflow HPC Deployment Guide on AWS ParallelCluster},
   year = {2026},
   publisher = {GitHub},
   url = {https://github.com/naratech-eng/hpc-genomics-nf}

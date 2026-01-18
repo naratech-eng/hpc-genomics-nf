@@ -17,7 +17,7 @@
       "success": "success"
     }
   },
-  "title": "Genomic Nextflow HPC Design Guide",
+  "title": "Genomic Nextflow HPC Deployment Guide",
   "description": "A comprehensive guide for building scalable genomic analysis pipelines on AWS ParallelCluster",
   "author": "Manus AI",
   "language": "en",
