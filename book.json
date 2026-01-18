@@ -1,0 +1,33 @@
+{
+  "root": ".",
+  "structure": {
+    "readme": "README.md",
+    "summary": "docs/SUMMARY.md"
+  },
+  "plugins": [
+    "hints",
+    "code",
+    "expandable-chapters-small"
+  ],
+  "pluginsConfig": {
+    "hints": {
+      "info": "info",
+      "warning": "warning",
+      "danger": "danger",
+      "success": "success"
+    }
+  },
+  "title": "Genomic Nextflow HPC Design Guide",
+  "description": "A comprehensive guide for building scalable genomic analysis pipelines on AWS ParallelCluster",
+  "author": "Manus AI",
+  "language": "en",
+  "gitbook": ">=3.2.3",
+  "links": {
+    "sidebar": {
+      "GitHub Repository": "https://github.com/naratech-eng/hpc-genomics-nf"
+    }
+  },
+  "styles": {
+    "website": "docs/styles/website.css"
+  }
+}
