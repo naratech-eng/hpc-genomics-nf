@@ -1,4 +1,4 @@
-# ** Genomic Nextflow HPC Deployment Guide on AWS ParallelCluster **
+# Genomic Workflow Deployment on AWS ParallelCluster Using Nextflow and SLURM
 
 ## Overview
 
