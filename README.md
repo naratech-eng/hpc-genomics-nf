@@ -1,11 +1,12 @@
-# Genomic Nextflow HPC Deployment Guide on AWS ParallelCluster
-
+# ** Genomic Nextflow HPC Deployment Guide on AWS ParallelCluster **
 
 ## Overview
 
 This documentation provides a comprehensive design guide for building a **scalable, secure, and reproducible High-Performance Computing (HPC) environment** on Amazon Web Services (AWS), specifically tailored for **Genomic Nextflow workflows**.
 
 The core of the infrastructure is built using **AWS ParallelCluster**, managed as Infrastructure as Code (IaC) via **Terraform**.
+
+**Published documentation:** https://naratech-platforms.gitbook.io/genomics-nf-hpc-on-aws-parallelcluster/
 
 - **Production-grade genomic variant discovery pipeline**
 - **AWS ParallelCluster with SLURM scheduler**
