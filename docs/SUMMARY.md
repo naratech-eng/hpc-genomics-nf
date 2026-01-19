@@ -39,6 +39,7 @@
   * [SLURM GPU Allocation Failures](11-troubleshooting-gpu.md#slurm-gpu-allocation-failures)
   * [CUDA and Lmod/Spack Module Issues](11-troubleshooting-gpu.md#cuda-and-lmodspack-module-issues)
 * [Post-Deployment Validation Checklist](12-validation-checklist.md)
+* [Ansible Post-Provisioning](13-ansible.md)
 
 ## Appendix
 

@@ -33,6 +33,7 @@ The core of the infrastructure is built using **AWS ParallelCluster**, managed a
 | [Developer Guidance](docs/10-developer-guidance.md) | SSM access, SLURM, and GPU management |
 | [Troubleshooting](docs/11-troubleshooting-gpu.md) | GPU and CUDA issue resolution |
 | [Validation Checklist](docs/12-validation-checklist.md) | Post-deployment verification steps |
+| [Ansible Post-Provisioning](docs/13-ansible.md) | Post-provision configuration and Lmod setup |
 
 ## Getting Started
 
@@ -47,6 +48,7 @@ The core of the infrastructure is built using **AWS ParallelCluster**, managed a
 hpc-genomics-nf/
 ├── README.md            # Project overview (this file)
 ├── docs/                # GitBook documentation
+├── ansible/             # Post-provision configuration
 ├── terraform/           # Infrastructure as Code
 ├── nextflow/            # Pipeline definitions
 └── modules/             # Reusable components

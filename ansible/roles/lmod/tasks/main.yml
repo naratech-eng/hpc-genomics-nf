@@ -1,0 +1,19 @@
+---
+- name: Ensure Lmod profile script exists
+  file:
+    path: "{{ lmod_profile_script }}"
+    state: touch
+    mode: "0644"
+
+- name: Configure MODULEPATH for Spack-generated modules
+  lineinfile:
+    path: "{{ lmod_profile_script }}"
+    create: true
+    line: "export MODULEPATH=\"${MODULEPATH}:{{ spack_module_root }}\""
+    state: present
+
+- name: Source Lmod profile script in system profile
+  lineinfile:
+    path: /etc/profile
+    line: "[ -f {{ lmod_profile_script }} ] && . {{ lmod_profile_script }}"
+    state: present
