@@ -17,6 +17,69 @@ The core of the infrastructure is built using **AWS ParallelCluster**, managed a
 - **Wazuh security monitoring on ECS Fargate**
 - **Prometheus/Grafana observability stack**
 
+## Architecture Diagram
+
+```mermaid
+flowchart TD
+    subgraph "Public Internet"
+        User((User))
+    end
+
+    subgraph "AWS Cloud - VPC"
+        subgraph "Public Subnet"
+            Bastion[Bastion Host <br/>or SSM/ VPN Gateway]
+        end
+
+        subgraph "Private Subnet"
+            subgraph "Management Layer"
+                HeadNode[Head Node<br/>SLURM Controller<br/>Nextflow Engine<br/>Spack/Lmod]
+                WazuhMgr[Wazuh Manager<br/>Security Monitoring]
+                PromGraf[Prometheus & Grafana<br/>Observability Stack]
+            end
+
+            subgraph "Compute Layer (Autoscaling)"
+                subgraph "CPU Partition"
+                    CPUNodes[c6a/c7i Instances<br/>Alignment, QC, Pre-processing]
+                end
+                subgraph "GPU Partition"
+                    GPUNodes[g5/g6 Instances<br/>DeepVariant, GPU Acceleration]
+                end
+            end
+
+            subgraph "Storage Layer"
+                EFS[(Amazon EFS<br/>Home Dirs, Scripts)]
+                FSx[(FSx for Lustre<br/>Scratch, High-perf I/O)]
+                S3[(Amazon S3<br/>Raw Data, Long-term Storage)]
+            end
+        end
+    end
+
+    User -- r1 --> Bastion
+    
+    Bastion --> HeadNode
+    HeadNode --> CPUNodes
+    HeadNode --> GPUNodes
+    CPUNodes --- FSx
+    GPUNodes --- FSx
+    HeadNode --- EFS
+    CPUNodes --- EFS
+    GPUNodes --- EFS
+    FSx <--> S3
+    
+    WazuhMgr --> HeadNode
+    WazuhMgr -.-> CPUNodes
+    WazuhMgr -.-> GPUNodes
+    PromGraf -.-> HeadNode
+    PromGraf -.-> CPUNodes
+    PromGraf -.-> GPUNodes
+
+    linkStyle default stroke-width:2px,fill:none,stroke:#F472B6,stroke-dasharray: 5 5,animation:flow
+    
+    classDef default fill:#1F2937,stroke:#22D3EE,color:#E5E7EB,stroke-width:2px;
+    classDef storage fill:#1F2937,stroke:#22D3EE,color:#E5E7EB,stroke-width:2px,stroke-dasharray: 5 5;
+    class EFS,FSx,S3 storage;
+```
+
 ## Quick Navigation
 
 | Section | Description |
