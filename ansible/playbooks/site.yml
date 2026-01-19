@@ -1,0 +1,9 @@
+---
+- name: HPC Post-Provision Configuration
+  hosts: hpc
+  become: true
+  vars:
+    spack_module_root: /opt/spack/share/spack/modules
+    lmod_profile_script: /etc/profile.d/lmod.sh
+  roles:
+    - lmod
